@@ -15,6 +15,7 @@ pub mod movement_pattern;
 pub mod no_handswitch_after_unbalancing_key;
 pub mod oxey_lsbs;
 pub mod oxey_sfbs;
+pub mod single_finger_scissor;
 pub mod symmetric_handswitches;
 
 /// BigramMetric is a trait for metrics that iterates over weighted bigrams.

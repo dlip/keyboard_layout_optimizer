@@ -1,6 +1,15 @@
 metrics:
   # layout metrics
 
+  single_finger_scissor:
+    enabled: true
+    weight: 10.0
+    normalization:
+      type: weight_found
+      value: 1.0
+    params:
+      null: null
+
   # Specified symbols shall be located within the leftmost "n" columns of the left hand
   shortcut_keys:
     enabled: false
@@ -109,7 +118,7 @@ metrics:
 
   # Informational metric computing loads per row
   row_loads:
-    enabled: true
+    enabled: false
     weight: 0.0
     normalization:
       type: weight_found
@@ -118,7 +127,7 @@ metrics:
       null: null
 
   modifier_usage:
-    enabled: true
+    enabled: false
     weight: 100.0
     normalization:
       type: weight_found
@@ -283,7 +292,7 @@ metrics:
   # If no handswitch occurs after hitting an "unbalancing" key (as defined in the keyboard's layout
   # config), a cost is counted depending on how far the unbalancing takes place.
   no_handswitch_after_unbalancing_key:
-    enabled: true
+    enabled: false
     weight: 36.0
     normalization:
       type: weight_found
@@ -298,7 +307,7 @@ metrics:
   # bigrams (in particular not the finger- and hand-balance metrics) for the first and second half
   # of each trigram. Their cost is multiplied and the square root of the resulting sum is taken.
   irregularity:
-    enabled: true
+    enabled: false
     weight: 8.25
     normalization:
       type: weight_found
@@ -310,7 +319,7 @@ metrics:
   # depending on whether the three keys corresponding to the trigram are "in line" ("rolling
   # movement") or if there is a directional change.
   no_handswitch_in_trigram:
-    enabled: true
+    enabled: false
     weight: 400.0
     normalization:
       type: weight_found
@@ -335,7 +344,7 @@ metrics:
   # handswitch or not, factors are applied. Trigrams starting with one of a list of specified
   # symbols are excluded.
   secondary_bigrams:
-    enabled: true
+    enabled: false
     weight: 0.1
     normalization:
       type: weight_found

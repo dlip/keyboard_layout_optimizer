@@ -1,6 +1,6 @@
 //! This module provides a struct representing a keyboard.
 
-use crate::key::{Finger, Hand, HandFingerMap, Key, MatrixPosition, Position};
+use crate::key::{Direction, Finger, Hand, HandFingerMap, Key, MatrixPosition, Position};
 
 use ahash::{AHashMap, AHashSet};
 use anyhow::Result;
@@ -46,6 +46,7 @@ pub struct KeyboardYAML {
     finger_resting_positions: AHashMap<Hand, AHashMap<Finger, Position>>,
     plot_template: String,
     plot_template_short: String,
+    directions: Vec<Vec<Direction>>,
 }
 
 /// Takes a slice of some iterable and checks whether that iterable contains
@@ -108,10 +109,14 @@ impl Keyboard {
             .zip(k.symmetries.into_iter().flatten())
             .zip(k.key_costs.into_iter().flatten())
             .zip(k.unbalancing_positions.into_iter().flatten())
+            .zip(k.directions.into_iter().flatten())
             .map(
                 |(
-                    (((((hand, finger), matrix_position), position), symmetry_index), cost),
-                    unbalancing,
+                    (
+                        (((((hand, finger), matrix_position), position), symmetry_index), cost),
+                        unbalancing,
+                    ),
+                    direction,
                 )| Key {
                     hand,
                     finger,
@@ -120,6 +125,7 @@ impl Keyboard {
                     symmetry_index,
                     cost,
                     unbalancing,
+                    direction,
                 },
             )
             .collect();
