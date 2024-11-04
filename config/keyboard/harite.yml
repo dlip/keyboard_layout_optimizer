@@ -165,14 +165,14 @@ keyboard:
 base_layout:
   keys:
       # Main key rows (rows 1-3)
-      - [["a"], ["b"], ["c"], ["d"],     # Left pinky
+      - [["'"], ["."], [","], [";"],     # Left pinky
         ["e"], ["f"], ["g"], ["h"],     # Left ring
         ["i"], ["j"], ["k"], ["l"],     # Left middle
         ["m"], ["n"], ["o"], ["p"],     # Left index
-        ["q"], ["r"], ["s"], ["t"],     # Right index
+        ["y"], ["r"], ["s"], ["t"],     # Right index
         ["u"], ["v"], ["w"], ["x"],     # Right middle
-        ["y"], ["z"], ["."], [","],     # Right ring
-        ["'"], [";"], ["["], ["]"]]     # Right pinky
+        ["a"], ["b"], ["c"], ["d"],     # Right ring
+        ["q"], ["z"], ["["], ["]"]]     # Right pinky
       
       # Thumb row (row 4)
       - [["1"], ["2"], ["3"], ["4"],            # Left thumb cluster
@@ -180,14 +180,14 @@ base_layout:
 
   fixed_keys:
     # Main key rows (rows 1-3)
-    - [false, false, false, false,     # Left pinky
+    - [true, true, true, true,     # Left pinky
        false, false, false, false,     # Left ring
        false, false, false, false,     # Left middle
        false, false, false, false,     # Left index
        false, false, false, false,     # Right index
        false, false, false, false,     # Right middle
        false, false, false, false,     # Right ring
-       false, false, false, false]     # Right pinky
+       true, true, true, true]     # Right pinky
     
     # Thumb row (row 4)
     - [true, true, true, true,                # Left thumb cluster

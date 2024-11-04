@@ -77,14 +77,14 @@ metrics:
       # Intended factors for finger load. Thumb values are ignored.
       intended_loads:
         [Left, Pinky]: 1.0
-        [Left, Ring]: 1.6
-        [Left, Middle]: 2.0
-        [Left, Index]: 2.0
-        [Left, Thumb]: 2.0
-        [Right, Thumb]: 2.0
-        [Right, Index]: 2.0
-        [Right, Middle]: 2.0
-        [Right, Ring]: 1.6
+        [Left, Ring]: 3
+        [Left, Middle]: 5.0
+        [Left, Index]: 5.0
+        [Left, Thumb]: 5.0
+        [Right, Thumb]: 5.0
+        [Right, Index]: 5.0
+        [Right, Middle]: 5.0
+        [Right, Ring]: 3
         [Right, Pinky]: 1.0
 
   # Each hand's load shall be close to 50%
@@ -145,7 +145,7 @@ metrics:
   # The cost can be weighted by the individual keys and if they are performed by stretching
   # or curling the finger. Also accounted for is whether there is lateral or in-line movement.
   finger_repeats:
-    enabled: true
+    enabled: false
     weight: 780.0
     normalization:
       type: weight_found
@@ -210,7 +210,7 @@ metrics:
   # how many rows were crossed and in which direction the movement occurs, costs are
   # counted.
   movement_pattern:
-    enabled: true
+    enabled: false
     weight: 100.0
     normalization:
       type: weight_found
@@ -377,7 +377,7 @@ metrics:
       exclude_rows: [3]
 
   oxey_inward_rolls:
-    enabled: true
+    enabled: false
     weight: -2.0
     normalization:
       type: weight_all
@@ -388,7 +388,7 @@ metrics:
       exclude_chars: ["\n"]
 
   oxey_outward_rolls:
-    enabled: true
+    enabled: false
     weight: -1.0
     normalization:
       type: weight_all
