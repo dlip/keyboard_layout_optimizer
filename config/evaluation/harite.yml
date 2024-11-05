@@ -12,7 +12,7 @@ metrics:
 
   directional_rolls:
     enabled: true
-    weight: 25000.0
+    weight: -100.0
     normalization:
       type: weight_found
       value: 1.0
@@ -20,6 +20,27 @@ metrics:
       factor_inward: 1.0
       factor_outward: 0.8
 
+  oxey_inward_rolls:
+    enabled: false
+    weight: -2.0
+    normalization:
+      type: weight_all
+      value: 0.01
+    params:
+      exclude_thumbs: true
+      exclude_modifiers: true
+      exclude_chars: ["\n"]
+
+  oxey_outward_rolls:
+    enabled: false
+    weight: -1.0
+    normalization:
+      type: weight_all
+      value: 0.01
+    params:
+      exclude_thumbs: true
+      exclude_modifiers: true
+      exclude_chars: ["\n"]
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:
@@ -396,28 +417,6 @@ metrics:
       factor_inward: 1.0
       factor_outward: 0.2
       exclude_rows: [3]
-
-  oxey_inward_rolls:
-    enabled: false
-    weight: -2.0
-    normalization:
-      type: weight_all
-      value: 0.01
-    params:
-      exclude_thumbs: true
-      exclude_modifiers: true
-      exclude_chars: ["\n"]
-
-  oxey_outward_rolls:
-    enabled: false
-    weight: -1.0
-    normalization:
-      type: weight_all
-      value: 0.01
-    params:
-      exclude_thumbs: true
-      exclude_modifiers: true
-      exclude_chars: ["\n"]
 
 ngrams:
   # Increase the weight of bigrams that have both an absolute weight and relative weight exceed

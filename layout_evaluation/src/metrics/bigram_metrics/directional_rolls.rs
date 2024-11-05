@@ -78,11 +78,11 @@ impl BigramMetric for DirectionalRolls {
         if k1.hand == Hand::Left && direction == RollDirection::Clockwise
             || k1.hand == Hand::Right && direction == RollDirection::CounterClockwise
         {
-            Some(-self.factor_inward * weight)
+            Some(self.factor_inward * weight)
         } else if k1.hand == Hand::Left && direction == RollDirection::CounterClockwise
             || k1.hand == Hand::Right && direction == RollDirection::Clockwise
         {
-            Some(-self.factor_outward * weight)
+            Some(self.factor_outward * weight)
         } else {
             Some(0.0)
         }

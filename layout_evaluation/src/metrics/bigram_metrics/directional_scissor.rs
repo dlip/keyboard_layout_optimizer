@@ -20,7 +20,7 @@ impl DirectionalScissor {
 
 impl BigramMetric for DirectionalScissor {
     fn name(&self) -> &str {
-        "Single Finger Scissor"
+        "Directional Scissor"
     }
 
     #[inline(always)]

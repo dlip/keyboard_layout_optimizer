@@ -1,3 +1,20 @@
 #!/usr/bin/env bash
+BIN="${1:-optimize_sa}"
+echo $BIN
+cargo build --release --bin $BIN
 
-RUST_LOG=INFO ./target/release/optimize_sa -l config/keyboard/harite.yml -e config/evaluation/harite.yml -s "plmakwchxbjyernostdivgfu"
+LAYOUT="mqbyazvrhwfolignsukcdxjp"
+
+CMD="./target/release/$BIN -l config/keyboard/harite.yml"
+
+if [[ "$BIN" == "optimize_sa" || "$BIN" == "optimize_genetic" || "$BIN" == "evaluate" ]]; then
+  CMD+=" -e config/evaluation/harite.yml -n ngrams/oxey_english"
+fi
+
+if [[ "$BIN" == "optimize_sa" || "$BIN" == "optimize_genetic" ]]; then
+  CMD+=" -s"
+fi
+
+CMD+=" $LAYOUT"
+export RUST_LOG=INFO
+$CMD
