@@ -5,6 +5,7 @@ use ordered_float::OrderedFloat;
 use priority_queue::DoublePriorityQueue;
 use std::{env, fmt};
 
+pub mod directional_rolls;
 pub mod finger_repeats;
 pub mod kla_distance;
 pub mod kla_finger_usage;
@@ -15,8 +16,6 @@ pub mod movement_pattern;
 pub mod no_handswitch_after_unbalancing_key;
 pub mod oxey_lsbs;
 pub mod oxey_sfbs;
-pub mod single_finger_inward_rolls;
-pub mod single_finger_outward_rolls;
 pub mod single_finger_scissor;
 pub mod symmetric_handswitches;
 

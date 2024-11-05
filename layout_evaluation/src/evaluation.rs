@@ -52,9 +52,7 @@ pub struct MetricParameters {
     pub finger_repeats: Option<WeightedParams<finger_repeats::Parameters>>,
     pub manual_bigram_penalty: Option<WeightedParams<manual_bigram_penalty::Parameters>>,
     pub single_finger_scissor: Option<WeightedParams<single_finger_scissor::Parameters>>,
-    pub single_finger_inward_rolls: Option<WeightedParams<single_finger_inward_rolls::Parameters>>,
-    pub single_finger_outward_rolls:
-        Option<WeightedParams<single_finger_outward_rolls::Parameters>>,
+    pub directional_rolls: Option<WeightedParams<directional_rolls::Parameters>>,
     pub movement_pattern: Option<WeightedParams<movement_pattern::Parameters>>,
     pub no_handswitch_after_unbalancing_key:
         Option<WeightedParams<no_handswitch_after_unbalancing_key::Parameters>>,
@@ -154,16 +152,7 @@ impl Evaluator {
         // bigram metrics
         add_metric!(bigram_metric, finger_repeats, FingerRepeats);
         add_metric!(bigram_metric, single_finger_scissor, SingleFingerScissor);
-        add_metric!(
-            bigram_metric,
-            single_finger_inward_rolls,
-            SingleFingerInwardRolls
-        );
-        add_metric!(
-            bigram_metric,
-            single_finger_outward_rolls,
-            SingleFingerOutwardRolls
-        );
+        add_metric!(bigram_metric, directional_rolls, DirectionalRolls);
         add_metric!(bigram_metric, manual_bigram_penalty, ManualBigramPenalty);
         add_metric!(bigram_metric, movement_pattern, MovementPattern);
         add_metric!(

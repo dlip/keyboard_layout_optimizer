@@ -10,23 +10,16 @@ metrics:
     params:
       null: null
 
-  single_finger_inward_rolls:
+  directional_rolls:
     enabled: true
-    weight: -5.0
+    weight: 25000.0
     normalization:
-      type: weight_all
-      value: 0.01
+      type: weight_found
+      value: 1.0
     params:
-      null: null
+      factor_inward: 1.0
+      factor_outward: 0.8
 
-  single_finger_outward_rolls:
-    enabled: true
-    weight: -2.0
-    normalization:
-      type: weight_all
-      value: 0.01
-    params:
-      null: null
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:

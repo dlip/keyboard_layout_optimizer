@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-RUST_LOG=INFO ./target/release/optimize_genetic -l config/keyboard/harite.yml -e config/evaluation/harite.yml -s "mxplovchkrdetsyagnwibfju"
+RUST_LOG=INFO ./target/release/optimize_sa -l config/keyboard/harite.yml -e config/evaluation/harite.yml -s "plmakwchxbjyernostdivgfu"
