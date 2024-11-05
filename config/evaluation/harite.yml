@@ -3,10 +3,28 @@ metrics:
 
   single_finger_scissor:
     enabled: true
-    weight: 100.0
+    weight: 10.0
     normalization:
       type: weight_found
       value: 1.0
+    params:
+      null: null
+
+  single_finger_inward_rolls:
+    enabled: true
+    weight: -5.0
+    normalization:
+      type: weight_all
+      value: 0.01
+    params:
+      null: null
+
+  single_finger_outward_rolls:
+    enabled: true
+    weight: -2.0
+    normalization:
+      type: weight_all
+      value: 0.01
     params:
       null: null
 
