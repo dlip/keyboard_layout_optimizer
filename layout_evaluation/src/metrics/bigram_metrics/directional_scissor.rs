@@ -10,15 +10,15 @@ use keyboard_layout::{
 pub struct Parameters {}
 
 #[derive(Clone, Debug)]
-pub struct SingleFingerScissor {}
+pub struct DirectionalScissor {}
 
-impl SingleFingerScissor {
+impl DirectionalScissor {
     pub fn new(_params: &Parameters) -> Self {
         Self {}
     }
 }
 
-impl BigramMetric for SingleFingerScissor {
+impl BigramMetric for DirectionalScissor {
     fn name(&self) -> &str {
         "Single Finger Scissor"
     }

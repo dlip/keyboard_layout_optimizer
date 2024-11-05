@@ -1,7 +1,7 @@
 metrics:
   # layout metrics
 
-  single_finger_scissor:
+  directional_scissor:
     enabled: true
     weight: 10.0
     normalization:
