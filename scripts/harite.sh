@@ -3,7 +3,7 @@ BIN="${1:-optimize_sa}"
 echo $BIN
 cargo build --release --bin $BIN
 
-LAYOUT="pxkwtvheofursignalcdmbjy"
+LAYOUT=".\\/,m;'fawrotyhlsignedvuckxpbjzq"
 
 CMD="./target/release/$BIN -l config/keyboard/harite.yml"
 
