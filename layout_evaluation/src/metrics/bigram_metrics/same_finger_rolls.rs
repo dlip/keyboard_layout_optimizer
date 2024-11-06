@@ -8,18 +8,18 @@ use keyboard_layout::{
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash, Debug)]
 #[repr(u8)]
-pub enum DirectionalRoll {
+pub enum SameFingerRoll {
     None,    // 0
     Inward,  // 1
     Outward, // 2
 }
 
-pub fn get_directional_roll(lk1: &LayerKey, lk2: &LayerKey) -> DirectionalRoll {
+pub fn get_same_finger_roll(lk1: &LayerKey, lk2: &LayerKey) -> SameFingerRoll {
     let k1 = lk1.key.clone();
     let k2 = lk2.key.clone();
     // should also check same row
     if k1.hand != k2.hand || k1.finger != k2.finger {
-        return DirectionalRoll::None;
+        return SameFingerRoll::None;
     }
 
     let d1 = k1.direction;
@@ -30,9 +30,9 @@ pub fn get_directional_roll(lk1: &LayerKey, lk2: &LayerKey) -> DirectionalRoll {
         || d1 == Direction::West && d2 == Direction::North
     {
         if k1.hand == Hand::Left {
-            DirectionalRoll::Inward
+            SameFingerRoll::Inward
         } else {
-            DirectionalRoll::Outward
+            SameFingerRoll::Outward
         }
     } else if d1 == Direction::North && d2 == Direction::West
         || d1 == Direction::West && d2 == Direction::South
@@ -40,12 +40,12 @@ pub fn get_directional_roll(lk1: &LayerKey, lk2: &LayerKey) -> DirectionalRoll {
         || d1 == Direction::East && d2 == Direction::North
     {
         if k1.hand == Hand::Left {
-            DirectionalRoll::Outward
+            SameFingerRoll::Outward
         } else {
-            DirectionalRoll::Inward
+            SameFingerRoll::Inward
         }
     } else {
-        DirectionalRoll::None
+        SameFingerRoll::None
     }
 }
 
@@ -58,12 +58,12 @@ pub struct Parameters {
 }
 
 #[derive(Clone, Debug)]
-pub struct DirectionalRolls {
+pub struct SameFingerRolls {
     factor_inward: f64,
     factor_outward: f64,
 }
 
-impl DirectionalRolls {
+impl SameFingerRolls {
     pub fn new(params: &Parameters) -> Self {
         Self {
             factor_inward: params.factor_inward,
@@ -72,9 +72,9 @@ impl DirectionalRolls {
     }
 }
 
-impl BigramMetric for DirectionalRolls {
+impl BigramMetric for SameFingerRolls {
     fn name(&self) -> &str {
-        "Directional Rolls"
+        "Same Finger Rolls"
     }
 
     #[inline(always)]
@@ -86,11 +86,11 @@ impl BigramMetric for DirectionalRolls {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        let direction = get_directional_roll(lk1, lk2);
+        let direction = get_same_finger_roll(lk1, lk2);
         match direction {
-            DirectionalRoll::Inward => Some(self.factor_inward * weight),
-            DirectionalRoll::Outward => Some(self.factor_outward * weight),
-            DirectionalRoll::None => Some(0.0),
+            SameFingerRoll::Inward => Some(self.factor_inward * weight),
+            SameFingerRoll::Outward => Some(self.factor_outward * weight),
+            SameFingerRoll::None => Some(0.0),
         }
     }
 }

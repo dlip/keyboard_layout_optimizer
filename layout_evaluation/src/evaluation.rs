@@ -51,8 +51,8 @@ pub struct MetricParameters {
     pub symmetric_handswitches: Option<WeightedParams<symmetric_handswitches::Parameters>>,
     pub finger_repeats: Option<WeightedParams<finger_repeats::Parameters>>,
     pub manual_bigram_penalty: Option<WeightedParams<manual_bigram_penalty::Parameters>>,
-    pub directional_scissors: Option<WeightedParams<directional_scissors::Parameters>>,
-    pub directional_rolls: Option<WeightedParams<directional_rolls::Parameters>>,
+    pub same_finger_scissors: Option<WeightedParams<same_finger_scissors::Parameters>>,
+    pub same_finger_rolls: Option<WeightedParams<same_finger_rolls::Parameters>>,
     pub movement_pattern: Option<WeightedParams<movement_pattern::Parameters>>,
     pub no_handswitch_after_unbalancing_key:
         Option<WeightedParams<no_handswitch_after_unbalancing_key::Parameters>>,
@@ -62,9 +62,9 @@ pub struct MetricParameters {
     pub secondary_bigrams: Option<WeightedParams<secondary_bigrams::Parameters>>,
     pub trigram_finger_repeats: Option<WeightedParams<trigram_finger_repeats::Parameters>>,
     pub trigram_rolls: Option<WeightedParams<trigram_rolls::Parameters>>,
-    pub trigram_directional_scissors:
-        Option<WeightedParams<trigram_directional_scissors::Parameters>>,
-    pub trigram_directional_rolls: Option<WeightedParams<trigram_directional_rolls::Parameters>>,
+    pub trigram_same_finger_scissors:
+        Option<WeightedParams<trigram_same_finger_scissors::Parameters>>,
+    pub trigram_same_finger_rolls: Option<WeightedParams<trigram_same_finger_rolls::Parameters>>,
 
     pub kla_home_key_words: Option<WeightedParams<kla_home_key_words::Parameters>>,
     pub kla_same_finger_words: Option<WeightedParams<kla_same_finger_words::Parameters>>,
@@ -154,8 +154,8 @@ impl Evaluator {
 
         // bigram metrics
         add_metric!(bigram_metric, finger_repeats, FingerRepeats);
-        add_metric!(bigram_metric, directional_scissors, DirectionalScissors);
-        add_metric!(bigram_metric, directional_rolls, DirectionalRolls);
+        add_metric!(bigram_metric, same_finger_scissors, SameFingerScissors);
+        add_metric!(bigram_metric, same_finger_rolls, SameFingerRolls);
         add_metric!(bigram_metric, manual_bigram_penalty, ManualBigramPenalty);
         add_metric!(bigram_metric, movement_pattern, MovementPattern);
         add_metric!(
@@ -175,13 +175,13 @@ impl Evaluator {
         add_metric!(trigram_metric, trigram_rolls, TrigramRolls);
         add_metric!(
             trigram_metric,
-            trigram_directional_scissors,
-            TrigramDirectionalScissors
+            trigram_same_finger_scissors,
+            TrigramSameFingerScissors
         );
         add_metric!(
             trigram_metric,
-            trigram_directional_rolls,
-            TrigramDirectionalRolls
+            trigram_same_finger_rolls,
+            TrigramSameFingerRolls
         );
         add_metric!(
             trigram_metric,

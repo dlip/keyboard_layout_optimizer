@@ -1,4 +1,4 @@
-use crate::metrics::bigram_metrics::directional_scissors::is_directional_scissor;
+use crate::metrics::bigram_metrics::same_finger_scissors::is_same_finger_scissor;
 
 use super::TrigramMetric;
 use serde::Deserialize;
@@ -9,17 +9,17 @@ use keyboard_layout::layout::{LayerKey, Layout};
 pub struct Parameters {}
 
 #[derive(Clone, Debug)]
-pub struct TrigramDirectionalScissors {}
+pub struct TrigramSameFingerScissors {}
 
-impl TrigramDirectionalScissors {
+impl TrigramSameFingerScissors {
     pub fn new(_params: &Parameters) -> Self {
         Self {}
     }
 }
 
-impl TrigramMetric for TrigramDirectionalScissors {
+impl TrigramMetric for TrigramSameFingerScissors {
     fn name(&self) -> &str {
-        "Trigram Directional Scissors"
+        "Trigram Same Finger Scissors"
     }
 
     #[inline(always)]
@@ -32,7 +32,7 @@ impl TrigramMetric for TrigramDirectionalScissors {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        if is_directional_scissor(lk1, lk2) || is_directional_scissor(lk2, lk3) {
+        if is_same_finger_scissor(lk1, lk2) || is_same_finger_scissor(lk2, lk3) {
             Some(weight)
         } else {
             Some(0.0)

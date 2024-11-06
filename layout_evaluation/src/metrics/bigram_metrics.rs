@@ -5,8 +5,8 @@ use ordered_float::OrderedFloat;
 use priority_queue::DoublePriorityQueue;
 use std::{env, fmt};
 
-pub mod directional_rolls;
-pub mod directional_scissors;
+pub mod same_finger_rolls;
+pub mod same_finger_scissors;
 pub mod finger_repeats;
 pub mod kla_distance;
 pub mod kla_finger_usage;

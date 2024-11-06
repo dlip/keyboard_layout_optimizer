@@ -1,4 +1,4 @@
-use crate::metrics::bigram_metrics::directional_rolls::{get_directional_roll, DirectionalRoll};
+use crate::metrics::bigram_metrics::same_finger_rolls::{get_same_finger_roll, SameFingerRoll};
 
 use super::TrigramMetric;
 use serde::Deserialize;
@@ -16,13 +16,13 @@ pub struct Parameters {
 }
 
 #[derive(Clone, Debug)]
-pub struct TrigramDirectionalRolls {
+pub struct TrigramSameFingerRolls {
     factor_inward: f64,
     factor_outward: f64,
     factor_pingpong: f64,
 }
 
-impl TrigramDirectionalRolls {
+impl TrigramSameFingerRolls {
     pub fn new(params: &Parameters) -> Self {
         Self {
             factor_inward: params.factor_inward,
@@ -32,9 +32,9 @@ impl TrigramDirectionalRolls {
     }
 }
 
-impl TrigramMetric for TrigramDirectionalRolls {
+impl TrigramMetric for TrigramSameFingerRolls {
     fn name(&self) -> &str {
-        "Trigram Directional Rolls"
+        "Trigram Same Finger Rolls"
     }
 
     #[inline(always)]
@@ -47,14 +47,14 @@ impl TrigramMetric for TrigramDirectionalRolls {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        let direction1 = get_directional_roll(lk1, lk2);
-        let direction2 = get_directional_roll(lk2, lk3);
-        if direction1 == DirectionalRoll::Inward && direction2 == DirectionalRoll::Inward {
+        let direction1 = get_same_finger_roll(lk1, lk2);
+        let direction2 = get_same_finger_roll(lk2, lk3);
+        if direction1 == SameFingerRoll::Inward && direction2 == SameFingerRoll::Inward {
             Some(self.factor_inward * weight)
-        } else if direction1 == DirectionalRoll::Outward && direction2 == DirectionalRoll::Outward {
+        } else if direction1 == SameFingerRoll::Outward && direction2 == SameFingerRoll::Outward {
             Some(self.factor_outward * weight)
-        } else if direction1 == DirectionalRoll::Outward && direction2 == DirectionalRoll::Inward
-            || direction1 == DirectionalRoll::Inward && direction2 == DirectionalRoll::Outward
+        } else if direction1 == SameFingerRoll::Outward && direction2 == SameFingerRoll::Inward
+            || direction1 == SameFingerRoll::Inward && direction2 == SameFingerRoll::Outward
         {
             Some(self.factor_pingpong * weight)
         } else {

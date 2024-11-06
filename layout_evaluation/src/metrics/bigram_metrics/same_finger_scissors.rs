@@ -6,7 +6,7 @@ use keyboard_layout::{
     layout::{LayerKey, Layout},
 };
 
-pub fn is_directional_scissor(lk1: &LayerKey, lk2: &LayerKey) -> bool {
+pub fn is_same_finger_scissor(lk1: &LayerKey, lk2: &LayerKey) -> bool {
     let k1 = lk1.key.clone();
     let k2 = lk2.key.clone();
     // should also check same row
@@ -26,17 +26,17 @@ pub fn is_directional_scissor(lk1: &LayerKey, lk2: &LayerKey) -> bool {
 pub struct Parameters {}
 
 #[derive(Clone, Debug)]
-pub struct DirectionalScissors {}
+pub struct SameFingerScissors {}
 
-impl DirectionalScissors {
+impl SameFingerScissors {
     pub fn new(_params: &Parameters) -> Self {
         Self {}
     }
 }
 
-impl BigramMetric for DirectionalScissors {
+impl BigramMetric for SameFingerScissors {
     fn name(&self) -> &str {
-        "Directional Scissors"
+        "Same Finger Scissors"
     }
 
     #[inline(always)]
@@ -48,7 +48,7 @@ impl BigramMetric for DirectionalScissors {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        if is_directional_scissor(lk1, lk2) {
+        if is_same_finger_scissor(lk1, lk2) {
             Some(weight)
         } else {
             Some(0.0)
