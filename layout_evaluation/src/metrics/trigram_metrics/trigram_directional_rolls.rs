@@ -1,4 +1,4 @@
-use crate::metrics::directional_roll::DirectionalRoll;
+use crate::metrics::bigram_metrics::directional_rolls::{get_directional_roll, DirectionalRoll};
 
 use super::TrigramMetric;
 use serde::Deserialize;
@@ -47,8 +47,8 @@ impl TrigramMetric for TrigramDirectionalRolls {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        let direction1 = DirectionalRoll::new(lk1, lk2);
-        let direction2 = DirectionalRoll::new(lk2, lk3);
+        let direction1 = get_directional_roll(lk1, lk2);
+        let direction2 = get_directional_roll(lk2, lk3);
         if direction1 == DirectionalRoll::Inward && direction2 == DirectionalRoll::Inward {
             Some(self.factor_inward * weight)
         } else if direction1 == DirectionalRoll::Outward && direction2 == DirectionalRoll::Outward {
