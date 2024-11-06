@@ -1,7 +1,7 @@
 metrics:
   # layout metrics
 
-  directional_scissor:
+  directional_scissors:
     enabled: true
     weight: 10.0
     normalization:
@@ -29,7 +29,7 @@ metrics:
     params:
       factor_inward: 1.0
       factor_outward: 0.8
-      factor_pingpong: -0.3
+      factor_pingpong: 0.3
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:
