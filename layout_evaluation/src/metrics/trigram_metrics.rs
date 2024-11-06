@@ -18,6 +18,7 @@ pub mod oxey_outward_rolls;
 pub mod oxey_redirects;
 pub mod secondary_bigrams;
 pub mod trigram_directional_rolls;
+pub mod trigram_directional_scissors;
 pub mod trigram_finger_repeats;
 pub mod trigram_rolls;
 

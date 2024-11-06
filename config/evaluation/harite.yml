@@ -20,6 +20,15 @@ metrics:
       factor_inward: 1.0
       factor_outward: 0.8
 
+  trigram_directional_scissors:
+    enabled: true
+    weight: 5.0
+    normalization:
+      type: weight_found
+      value: 1.0
+    params:
+      null: null
+
   trigram_directional_rolls:
     enabled: true
     weight: -50.0
