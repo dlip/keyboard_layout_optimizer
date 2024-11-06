@@ -20,27 +20,16 @@ metrics:
       factor_inward: 1.0
       factor_outward: 0.8
 
-  oxey_inward_rolls:
-    enabled: false
-    weight: -2.0
+  trigram_directional_rolls:
+    enabled: true
+    weight: -50.0
     normalization:
-      type: weight_all
-      value: 0.01
+      type: weight_found
+      value: 1.0
     params:
-      exclude_thumbs: true
-      exclude_modifiers: true
-      exclude_chars: ["\n"]
-
-  oxey_outward_rolls:
-    enabled: false
-    weight: -1.0
-    normalization:
-      type: weight_all
-      value: 0.01
-    params:
-      exclude_thumbs: true
-      exclude_modifiers: true
-      exclude_chars: ["\n"]
+      factor_inward: 1.0
+      factor_outward: 0.8
+      factor_pingpong: -0.3
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:
@@ -76,12 +65,34 @@ metrics:
   # Each keystroke incurs a cost (defined in the keyboard's layout config)
   key_costs:
     enabled: true
-    weight: 20.0
+    weight: 50.0
     normalization:
       type: weight_found
       value: 1.0
     params:
       null: null
+
+  oxey_inward_rolls:
+    enabled: false
+    weight: -2.0
+    normalization:
+      type: weight_all
+      value: 0.01
+    params:
+      exclude_thumbs: true
+      exclude_modifiers: true
+      exclude_chars: ["\n"]
+
+  oxey_outward_rolls:
+    enabled: false
+    weight: -1.0
+    normalization:
+      type: weight_all
+      value: 0.01
+    params:
+      exclude_thumbs: true
+      exclude_modifiers: true
+      exclude_chars: ["\n"]
 
   # Specified symbols shall be located within the leftmost "n" columns of the left hand
   shortcut_keys:

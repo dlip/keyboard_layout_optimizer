@@ -62,6 +62,7 @@ pub struct MetricParameters {
     pub secondary_bigrams: Option<WeightedParams<secondary_bigrams::Parameters>>,
     pub trigram_finger_repeats: Option<WeightedParams<trigram_finger_repeats::Parameters>>,
     pub trigram_rolls: Option<WeightedParams<trigram_rolls::Parameters>>,
+    pub trigram_directional_rolls: Option<WeightedParams<trigram_directional_rolls::Parameters>>,
 
     pub kla_home_key_words: Option<WeightedParams<kla_home_key_words::Parameters>>,
     pub kla_same_finger_words: Option<WeightedParams<kla_same_finger_words::Parameters>>,
@@ -170,6 +171,11 @@ impl Evaluator {
         );
         add_metric!(trigram_metric, trigram_finger_repeats, TrigramFingerRepeats);
         add_metric!(trigram_metric, trigram_rolls, TrigramRolls);
+        add_metric!(
+            trigram_metric,
+            trigram_directional_rolls,
+            TrigramDirectionalRolls
+        );
         add_metric!(
             trigram_metric,
             irregularity,
