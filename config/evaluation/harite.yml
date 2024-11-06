@@ -18,7 +18,17 @@ metrics:
       value: 1.0
     params:
       factor_inward: 1.0
-      factor_outward: 0.8
+      factor_outward: 0.9
+
+  unidirectional_rolls:
+    enabled: true
+    weight: -50.0
+    normalization:
+      type: weight_found
+      value: 1.0
+    params:
+      factor_inward: 1.0
+      factor_outward: 0.7
 
   trigram_same_finger_scissors:
     enabled: true
@@ -37,8 +47,7 @@ metrics:
       value: 1.0
     params:
       factor_inward: 1.0
-      factor_outward: 0.8
-      factor_pingpong: -0.5
+      factor_outward: 0.9
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:
@@ -81,6 +90,9 @@ metrics:
     params:
       null: null
 
+
+
+  ## DISABLED
   oxey_inward_rolls:
     enabled: false
     weight: -2.0
