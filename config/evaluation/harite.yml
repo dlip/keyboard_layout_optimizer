@@ -22,7 +22,7 @@ metrics:
 
   trigram_directional_scissors:
     enabled: true
-    weight: 5.0
+    weight: 10.0
     normalization:
       type: weight_found
       value: 1.0
@@ -38,7 +38,7 @@ metrics:
     params:
       factor_inward: 1.0
       factor_outward: 0.8
-      factor_pingpong: 0.3
+      factor_pingpong: -0.1
 
   # Each finger's load shall be relative to the specified weights
   finger_balance:

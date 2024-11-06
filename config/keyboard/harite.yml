@@ -152,24 +152,19 @@ keyboard:
 
 
   plot_template: |2
-      LEFT HAND
+      LEFT HAND                                                                     RIGHT HAND
 
-      Pinky              Ring               Middle              Index
-        {{0}}                  {{4}}                  {{8}}                   {{12}}
-      {{1}}   {{2}}              {{5}}   {{6}}              {{9}}   {{10}}               {{13}}   {{14}}
-        {{3}}                  {{7}}                  {{11}}                   {{15}}
+      Pinky              Ring               Middle              Index               Index             Middle              Ring               Pinky
 
-      RIGHT HAND
+        {{0}}                  {{4}}                  {{8}}                   {{12}}                   {{16}}                 {{20}}                   {{24}}                  {{28}}
+      {{1}}   {{2}}              {{5}}   {{6}}              {{9}}   {{10}}               {{13}}   {{14}}               {{17}}   {{18}}             {{21}}   {{22}}               {{25}}   {{26}}              {{29}}   {{30}}
+        {{3}}                  {{7}}                  {{11}}                   {{15}}                   {{19}}                 {{23}}                   {{27}}                  {{31}}
 
-      Index             Middle              Ring               Pinky
-        {{16}}                 {{20}}                   {{24}}                  {{28}}
-      {{17}}   {{18}}             {{21}}   {{22}}               {{25}}   {{26}}              {{29}}   {{30}}
-        {{19}}                 {{23}}                   {{27}}                  {{31}}
+                                                                Thumb               Thumb
 
-                  LEFT THUMB        RIGHT THUMB
-                    {{32}}                 {{36}} 
-                  {{33}}   {{34}}             {{37}}   {{38}}
-                    {{35}}                 {{39}}
+                                                                  {{32}}                   {{36}} 
+                                                                {{33}}   {{34}}               {{37}}   {{38}}
+                                                                  {{35}}                   {{39}}
 
 
   plot_template_short: |2
@@ -180,14 +175,14 @@ keyboard:
 base_layout:
   keys:
       # Main key rows (rows 1-3)
-      - [["'"], [","], ["."], [";"],     # Left pinky
+      - [["="], ["q"], ["z"], ["-"],     # Left pinky
         ["a"], ["b"], ["c"], ["d"],     # Left ring
         ["e"], ["f"], ["g"], ["h"],     # Left middle
         ["i"], ["j"], ["k"], ["l"],     # Left index
         ["m"], ["n"], ["o"], ["p"],     # Right index
         ["r"], ["s"], ["t"], ["u"],     # Right middle
         ["v"], ["w"], ["x"], ["y"],     # Right ring
-        ["="], ["q"], ["z"], ["-"]]     # Right pinky
+        ["'"], [","], ["."], [";"]]     # Right pinky
       
       # Thumb row (row 4)
       - [["1"], ["2"], ["3"], ["4"],            # Left thumb cluster
