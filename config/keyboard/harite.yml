@@ -95,10 +95,10 @@ keyboard:
       # N    W    E   S
       - [11,  14,   13,  12,     # Left pinky
         5,   8,   7,  6,     # Left ring
-        1,   4,   3,  2,     # Left middle
-        1,   4,   3,  2,     # Left index
-        1,   3,   4,  2,     # Right index
-        1,   3,   4,  2,     # Right middle
+        2,   4,   3,  1,     # Left middle
+        2,   4,   3,  1,     # Left index
+        2,   3,   4,  1,     # Right index
+        2,   3,   4,  1,     # Right middle
         5,   7,   8,  6,     # Right ring
         11,   13,   14,  12]     # Right pinky
       
@@ -138,17 +138,17 @@ keyboard:
 
   finger_resting_positions:
     Left:
-      Pinky: [50.5, 115.5]
-      Ring: [100.5, 115.5]
-      Middle: [150.5, 115.5]
-      Index: [200.5, 115.5]
-      Thumb: [230.5, 210.5]
+      Pinky: [1,1]
+      Ring: [4,1]
+      Middle: [7,1]
+      Index: [10,1]
+      Thumb: [10,4]
     Right:
-      Pinky: [650.5, 115.5]
-      Ring: [600.5, 115.5]
-      Middle: [550.5, 115.5]
-      Index: [500.5, 115.5]
-      Thumb: [470.5, 210.5]
+      Index: [13,1]
+      Middle: [16,1]
+      Ring: [19,1]
+      Pinky: [22,1]
+      Thumb: [13,4]
 
 
   plot_template: |2

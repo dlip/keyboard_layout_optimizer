@@ -3,7 +3,7 @@ metrics:
 
   same_finger_scissors:
     enabled: true
-    weight: 100.0
+    weight: 200.0
     normalization:
       type: weight_found
       value: 1.0
@@ -12,7 +12,7 @@ metrics:
 
   same_finger_rolls:
     enabled: true
-    weight: -100.0
+    weight: -200.0
     normalization:
       type: weight_found
       value: 1.0
@@ -22,7 +22,7 @@ metrics:
 
   unidirectional_rolls:
     enabled: true
-    weight: -50.0
+    weight: -100.0
     normalization:
       type: weight_found
       value: 1.0
@@ -30,18 +30,9 @@ metrics:
       factor_inward: 1.0
       factor_outward: 0.7
 
-  trigram_same_finger_scissors:
-    enabled: true
-    weight: 80.0
-    normalization:
-      type: weight_found
-      value: 1.0
-    params:
-      null: null
-
   trigram_same_finger_rolls:
     enabled: true
-    weight: -80.0
+    weight: -300.0
     normalization:
       type: weight_found
       value: 1.0
