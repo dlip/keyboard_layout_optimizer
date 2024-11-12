@@ -51,6 +51,8 @@ pub struct MetricParameters {
     pub symmetric_handswitches: Option<WeightedParams<symmetric_handswitches::Parameters>>,
     pub finger_repeats: Option<WeightedParams<finger_repeats::Parameters>>,
     pub manual_bigram_penalty: Option<WeightedParams<manual_bigram_penalty::Parameters>>,
+    pub same_finger_scissors: Option<WeightedParams<same_finger_scissors::Parameters>>,
+    pub directional_change: Option<WeightedParams<directional_change::Parameters>>,
     pub movement_pattern: Option<WeightedParams<movement_pattern::Parameters>>,
     pub no_handswitch_after_unbalancing_key:
         Option<WeightedParams<no_handswitch_after_unbalancing_key::Parameters>>,
@@ -60,6 +62,10 @@ pub struct MetricParameters {
     pub secondary_bigrams: Option<WeightedParams<secondary_bigrams::Parameters>>,
     pub trigram_finger_repeats: Option<WeightedParams<trigram_finger_repeats::Parameters>>,
     pub trigram_rolls: Option<WeightedParams<trigram_rolls::Parameters>>,
+    pub same_finger_rolls: Option<WeightedParams<same_finger_rolls::Parameters>>,
+    pub same_finger_onehands: Option<WeightedParams<same_finger_onehands::Parameters>>,
+    pub unidirectional_rolls: Option<WeightedParams<unidirectional_rolls::Parameters>>,
+    pub unidirectional_onehands: Option<WeightedParams<unidirectional_onehands::Parameters>>,
 
     pub kla_home_key_words: Option<WeightedParams<kla_home_key_words::Parameters>>,
     pub kla_same_finger_words: Option<WeightedParams<kla_same_finger_words::Parameters>>,
@@ -149,6 +155,8 @@ impl Evaluator {
 
         // bigram metrics
         add_metric!(bigram_metric, finger_repeats, FingerRepeats);
+        add_metric!(bigram_metric, same_finger_scissors, SameFingerScissors);
+        add_metric!(bigram_metric, directional_change, DirectionalChange);
         add_metric!(bigram_metric, manual_bigram_penalty, ManualBigramPenalty);
         add_metric!(bigram_metric, movement_pattern, MovementPattern);
         add_metric!(
@@ -164,8 +172,16 @@ impl Evaluator {
             no_handswitch_in_trigram,
             NoHandswitchInTrigram
         );
+        add_metric!(trigram_metric, unidirectional_rolls, UnidirectionalRolls);
+        add_metric!(
+            trigram_metric,
+            unidirectional_onehands,
+            UnidirectionalOnehands
+        );
         add_metric!(trigram_metric, trigram_finger_repeats, TrigramFingerRepeats);
         add_metric!(trigram_metric, trigram_rolls, TrigramRolls);
+        add_metric!(trigram_metric, same_finger_rolls, SameFingerRolls);
+        add_metric!(trigram_metric, same_finger_onehands, SameFingerOnehands);
         add_metric!(
             trigram_metric,
             irregularity,

@@ -285,6 +285,29 @@ impl<T: Copy + fmt::Display> fmt::Display for HandFingerMap<T> {
     }
 }
 
+#[derive(Clone, Copy, PartialEq, Eq, Hash, Deserialize, Debug)]
+#[repr(u8)]
+pub enum Direction {
+    None,   // 0
+    North,  // 1
+    West,   // 2
+    East,   // 3
+    South,  // 4
+    Centre, // 4
+}
+
+impl Default for Direction {
+    fn default() -> Self {
+        Direction::None
+    }
+}
+
+impl fmt::Display for Direction {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
+}
+
 /// The [`Key`] struct represents a physical key on the keyboard. It provides various information about the location
 /// of the key it represents and how it is (supposed to be) used, e.g. which hand and finger shall press it, how
 /// "uncomfortable" it is to reach it (in terms of a cost valua), or if it forces the hand off the home row.
@@ -310,4 +333,7 @@ pub struct Key {
 
     /// How strongly does the hand need to move away from the home row (start position) horizontally and vertically
     pub unbalancing: Position,
+
+    /// What is the direction in a multi directional switch?
+    pub direction: Direction,
 }

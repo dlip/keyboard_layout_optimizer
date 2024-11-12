@@ -16,9 +16,13 @@ pub mod oxey_inward_rolls;
 pub mod oxey_onehands;
 pub mod oxey_outward_rolls;
 pub mod oxey_redirects;
+pub mod same_finger_onehands;
+pub mod same_finger_rolls;
 pub mod secondary_bigrams;
 pub mod trigram_finger_repeats;
 pub mod trigram_rolls;
+pub mod unidirectional_onehands;
+pub mod unidirectional_rolls;
 
 /// TrigramMetric is a trait for metrics that iterates over weighted trigrams.
 pub trait TrigramMetric: Send + Sync + TrigramMetricClone + fmt::Debug {

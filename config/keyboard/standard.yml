@@ -27,6 +27,13 @@ keyboard:
     - [Pinky,   Pinky,   Pinky, Ring, Middle, Index, Index,   Index, Index, Middle, Ring, Pinky, Pinky]
     - [Pinky, Ring, Thumb,                          Thumb,                      Thumb, Middle, Ring, Pinky]
 
+  directions:
+    - [None,    None, None, None, None, None, None,   None, None, None, None, None, None, None]
+    - [None,       None, None, None, None, None,   None, None, None, None, None, None, None]
+    - [None,         None, None, None, None, None,   None, None, None, None, None, None, None, None]
+    - [None,    None,    None, None, None, None, None,   None, None, None, None, None, None]
+    - [None, None, None,                     None,                      None, None, None, None]
+
   key_costs:
     - [80,   70, 60, 50, 50, 50, 60,   60, 50, 50, 50, 60, 70, 80]
     - [24,      16, 10,  5, 12, 17,   20, 13,  5,  9, 11, 20, 36]
@@ -198,3 +205,4 @@ base_layout:
       Right:
         type: hold
         value: [[18,2], [16,4]]
+
