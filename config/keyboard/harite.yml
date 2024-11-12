@@ -93,14 +93,14 @@ keyboard:
 
   key_costs:
       # N    W    E   S
-      - [11,  14,   13,  12,     # Left pinky
+      - [6,  10,   9,  5,     # Left pinky
         4,   8,   7,  3,     # Left ring
         2,   5,   4,  1,     # Left middle
         2,   5,   4,  1,     # Left index
         2,   4,   5,  1,     # Right index
         2,   4,   5,  1,     # Right middle
         4,   7,   8,  3,     # Right ring
-        11,   13,   14,  12]     # Right pinky
+        6,   9,   10,  5]     # Right pinky
       
       # Thumb row (row 4)
       - [2, 2, 2, 2,            # Left thumb cluster
@@ -172,14 +172,14 @@ keyboard:
 base_layout:
   keys:
       # Main key rows (rows 1-3)
-      - [[","],["\\"], ["'"],  ["q"],     # Left pinky
+      - [["q"],["\\"], ["'"],  [","],     # Left pinky
         ["a"], ["b"], ["c"], ["d"],     # Left ring
         ["e"], ["f"], ["g"], ["h"],     # Left middle
         ["i"], ["j"], ["k"], ["l"],     # Left index
         ["m"], ["n"], ["o"], ["p"],     # Right index
         ["r"], ["s"], ["t"], ["u"],     # Right middle
         ["v"], ["w"], ["x"], ["y"],     # Right ring
-        ["."],  [";"], ["/"],["z"] ]     # Right pinky
+        ["z"],  [";"], ["/"],["."] ]     # Right pinky
       
       # Thumb row (row 4)
       - [["1"], ["2"], ["3"], ["4"],            # Left thumb cluster
