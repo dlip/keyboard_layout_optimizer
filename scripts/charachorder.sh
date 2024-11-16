@@ -4,7 +4,7 @@ BIN="${1:-optimize_sa}"
 echo $BIN
 cargo build --release --bin $BIN
 
-LAYOUT=";'sygrdelahxtvzijw.cfopn,qkbum"
+LAYOUT="jylgonrehtcmak,sq.ud;fvi'bxzwp"
 
 CMD="./target/release/$BIN -l config/keyboard/charachorder.yml"
 

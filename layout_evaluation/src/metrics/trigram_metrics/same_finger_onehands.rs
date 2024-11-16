@@ -60,6 +60,10 @@ impl TrigramMetric for SameFingerOnehands {
         if f1 != f2 || f2 != f3 {
             return Some(0.0);
         }
+        // must be the same directional switch (row)
+        if k1.key.position.1 != k2.key.position.1 ||  k2.key.position.1 != k3.key.position.1 {
+            return Some(0.0);
+         }
 
         let direction1 = get_same_finger_roll_direction(k1, k2);
         let direction2 = get_same_finger_roll_direction(k2, k3);

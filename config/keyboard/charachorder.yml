@@ -26,30 +26,31 @@ keyboard:
       [13,6], [12,7],  [14,7], [13,8]]           # Right thumb cluster 2
 
   positions:
+    # Used to determine if directional switch is on the same row
     # Left Hand
     # Pinky (columns 1-3)
-    - [[1,0], [0,1],  [2,1],  [1,2],    # Left pinky (north, west, east, south)
+    - [[1,0], [2,0],  [3,0],  [4,0],    # Left pinky (north, west, east, south)
     # Ring (columns 4-6)
-      [4,0],  [3,1],  [5,1],   [4,2],    # Left ring
+      [5,0],  [6,0],  [7,0],   [8,0],    # Left ring
     # Middle (columns 7-9)
-      [7,0],  [6,1],  [8,1],   [7,2],    # Left middle
+      [9,0],  [10,0],  [11,0],  [12,0],    # Left middle
     # Index (columns 10-12)
-      [10,0], [9,1], [11,1], [10,2],   # Left index
+      [13,0], [14,0], [15,0], [16,0],   # Left index
     # Right Hand
     # Index (columns 13-15)
-      [13,0], [12,1],  [14,1], [13,2],   # Right index
+      [17,0], [18,0],  [19,0], [20,0],   # Right index
     # Middle (columns 16-18)
-      [16,0], [15,1],  [17,1], [16,2],   # Right middle
+      [21,0], [22,0],  [23,0], [24,0],   # Right middle
     # Ring (columns 19-21)
-      [19,0], [18,1],  [20,1], [19,2],   # Right ring
+      [25,0], [26,0],  [27,0], [28,0],   # Right ring
     # Pinky (columns 22-24)
-      [22,0], [21,1],  [23,1], [22,2]]   # Right pinky
+      [29,0], [30,0],  [31,0], [32,0]]   # Right pinky
 
     # Thumb clusters (sequential numbering)
-    - [[10,3],  [9,4],  [11,4], [10,5],            # Left thumb cluster
-      [13,3], [12,4],  [14,4], [13,5]]           # Right thumb cluster
-    - [[10,6],  [9,7],  [11,7], [10,8],            # Left thumb cluster 2
-      [13,6], [12,7],  [14,7], [13,8]]           # Right thumb cluster 2
+    - [[1,1],  [2,1],  [3,1], [4,1],            # Left thumb cluster
+      [5,1], [6,1],  [7,1], [8,1]]           # Right thumb cluster
+    - [[1,2],  [2,2],  [3,2], [4,2],            # Left thumb cluster 2
+      [5,2], [6,2],  [7,2], [8,2]]           # Right thumb cluster 2
 
   hands:
     # Main key rows (rows 1-3)

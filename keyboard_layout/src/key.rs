@@ -47,6 +47,7 @@ pub enum Finger {
     Middle, // 2
     Ring,   // 3
     Pinky,  // 4
+    Thumb2, // 5
 }
 
 impl Default for Finger {

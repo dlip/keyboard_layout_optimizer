@@ -32,9 +32,10 @@ impl BigramMetric for SameFingerScissors {
         _total_weight: f64,
         _layout: &Layout,
     ) -> Option<f64> {
-        if k1.key.hand != k2.key.hand || k1.key.finger != k2.key.finger {
+        if k1.key.hand != k2.key.hand || k1.key.finger != k2.key.finger || k1.key.position.1 != k2.key.position.1 {
             return Some(0.0);
         }
+
         let d1 = k1.key.direction;
         let d2 = k2.key.direction;
 

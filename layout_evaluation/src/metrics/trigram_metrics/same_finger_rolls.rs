@@ -95,6 +95,10 @@ impl TrigramMetric for SameFingerRolls {
         if kr1.key.finger != kr2.key.finger {
             return Some(0.0);
         }
+        // must be the same directional switch (row)
+        if kr1.key.position.1 != kr2.key.position.1 {
+            return Some(0.0);
+         }
 
         let direction = get_same_finger_roll_direction(kr1, kr2);
 
