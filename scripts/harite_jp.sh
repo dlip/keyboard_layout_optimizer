@@ -4,7 +4,7 @@ BIN="${1:-optimize_sa}"
 echo $BIN
 cargo build --release --bin $BIN
 
-LAYOUT="fxkswyhtomcalignurvebpjd"
+LAYOUT=")>sbfuztqhjywxlegk9dr;4i"
 
 CMD="./target/release/$BIN -l config/keyboard/harite_jp.yml"
 
@@ -13,9 +13,9 @@ if [[ "$BIN" == "optimize_sa" || "$BIN" == "optimize_genetic" || "$BIN" == "eval
 fi
 
 if [[ "$BIN" == "optimize_sa" || "$BIN" == "optimize_genetic" ]]; then
-  CMD+=" "
+  CMD+=" -s"
 fi
 
-# CMD+=" $LAYOUT"
+CMD+=" $LAYOUT"
 export RUST_LOG=INFO
 $CMD

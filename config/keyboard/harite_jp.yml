@@ -173,14 +173,14 @@ keyboard:
 base_layout:
   keys:
       # Main key rows (rows 1-3)
-      - [["ル"],["ル"], ["ル"],  ["、"],     # Left pinky
-        ["イ"], ["シ"], ["ン"], ["ハ"],     # Left ring
-        ["カ"], ["タ"], ["ウ"], ["ノ"],     # Left middle
-        ["マ"], ["ス"], ["ニ"], ["ク"],     # Left index
-        ["テ"], ["キ"], ["コ"], ["ヲ"],     # Right index
-        ["ト"], ["レ"], ["ナ"], ["ツ"],     # Right middle
-        ["サ"], ["リ"], ["ア"], ["チ"],     # Right ring
-        ["ル"],  ["ル"], ["ル"],["。"] ]     # Right pinky
+      - [["["],["_"], ["}"],  ["<"],     # Left pinky
+        ["d"], ["t"], ["e"], ["q"],     # Left ring
+        ["f"], ["w"], ["y"], ["4"],     # Left middle
+        ["k"], [">"], ["z"], ["r"],     # Left index
+        ["j"], ["9"], ["h"], ["s"],     # Right index
+        ["b"], ["i"], ["g"], [")"],     # Right middle
+        [";"], ["u"], ["x"], ["l"],     # Right ring
+        ["]"],  ["|"], ["?"],[">"] ]     # Right pinky
       
       # Thumb row (row 4)
       - [["1"], ["2"], ["3"], ["4"],            # Left thumb cluster

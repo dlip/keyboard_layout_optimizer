@@ -18,16 +18,122 @@ def is_all_katakana(string):
     # Match only if the string contains one or more Katakana characters and nothing else
     return bool(re.fullmatch(r"[\u30A0-\u30FF]+", string))
 
-equivalents = {
-    'ガ': 'カ'
+shifted = {
+    'ガ':'カ',
+    'ギ':'キ',
+    'グ':'ク',
+    'ゲ':'ケ',
+    'ゴ':'コ',
+    'ザ':'サ',
+    'ジ':'シ',
+    'ズ':'ス',
+    'ゼ':'セ',
+    'ゾ':'ソ',
+    'ダ':'タ',
+    'ヂ':'チ',
+    'ヅ':'ツ',
+    'ッ':'ツ',
+    'デ':'テ',
+    'ド':'ト',
+    'バ':'ハ',
+    'ビ':'ヒ',
+    'ブ':'フ',
+    'ベ':'ヘ',
+    'ボ':'ホ',
+    'パ':'ハ',
+    'ピ':'ヒ',
+    'プ':'フ',
+    'ペ':'へ',
+    'ポ':'ホ',
+    'ャ':'ヤ',
+    'ュ':'ユ',
+    'ョ':'ヨ',
+    'ァ':'ア',
+    'ィ':'イ',
+    'ゥ':'ウ',
+    'ェ':'エ',
+    'ォ':'オ'
 }
 
-def remap_equivalent(string):
+def unshift(string):
     res = ""
     for c in string:
-        res += equivalents.get(c,c)
+        res += shifted.get(c,c)
     return res
 
+qwerty_map = {
+'カ':'t',
+'キ':'g',
+'ク':'h',
+'ケ':"'",
+'コ':'b',
+'サ':'x',
+'シ':'d',
+'ス':'r',
+'セ':'p',
+'ソ':'c',
+'タ':'q',
+'チ':'a',
+'ツ':'z',
+'テ':'w',
+'ト':'s',
+'ハ':'f',
+'ヒ':'v',
+'フ':'2',
+'ヘ':'=',
+'へ':'=',
+'へ':'=',
+'ホ':'-',
+'ヤ':'7',
+'ユ':'8',
+'ヨ':'9',
+'ア':'3',
+'イ':'e',
+'ウ':'4',
+'エ':'5',
+'オ':'6',
+'ラ':'o',
+'リ':'l',
+'リ':'l',
+'リ':'l',
+'ル':'.',
+'レ':';',
+'ロ':'`',
+'マ':'j',
+'ミ':'n',
+'ム':'\\',
+'メ':'/',
+'モ':'m',
+'ナ':'u',
+'ニ':'i',
+'ヌ':'1',
+'ネ':',',
+'ノ':'k',
+'ワ':'0',
+'ヲ':')',
+'ン':'y',
+'ー':'_',
+'。':'>',
+'、':'<',
+'「':'}',
+'」':'|',
+'・':'?',
+'，':'',
+'？':'',
+'！':'',
+'々':'',
+}
+
+unknown = {}
+
+def qwerty_remap(string):
+    res = ""
+    for c in string:
+        if c not in qwerty_map:
+            unknown[c] = 1
+        else:
+            res += qwerty_map[c]
+    return res
 
 ngrams = [{},{},{}]
 
@@ -48,7 +154,8 @@ with open('core10k.txt', 'r') as f:
                         yomi=token['surface']
                     else:
                         continue
-                yomi = remap_equivalent(yomi)
+                yomi = unshift(yomi)
+                yomi = qwerty_remap(yomi)
                 for n in ngram(x+1,yomi):
                     ngrams[x][n] = ngrams[x].get(n,0) + 1
 
@@ -61,3 +168,4 @@ for x in range(3):
         print(f"Writing {fp.name}")
         for o in objs:
             fp.write(f"{o['count']} {o['gram']}\n")
+print(unknown)
