@@ -9,7 +9,7 @@ def ngram(n, text):
     i = length - n + 1
     chars = list(text)
     while i > 0:
-        i = i - 1
+        i -= 1
         tokens.append(''.join(chars[i:i + n]))
 
     return tokens
@@ -17,6 +17,17 @@ def ngram(n, text):
 def is_all_katakana(string):
     # Match only if the string contains one or more Katakana characters and nothing else
     return bool(re.fullmatch(r"[\u30A0-\u30FF]+", string))
+
+equivalents = {
+    'ガ': 'カ'
+}
+
+def remap_equivalent(string):
+    res = ""
+    for c in string:
+        res += equivalents.get(c,c)
+    return res
+
 
 ngrams = [{},{},{}]
 
@@ -37,6 +48,7 @@ with open('core10k.txt', 'r') as f:
                         yomi=token['surface']
                     else:
                         continue
+                yomi = remap_equivalent(yomi)
                 for n in ngram(x+1,yomi):
                     ngrams[x][n] = ngrams[x].get(n,0) + 1
 
