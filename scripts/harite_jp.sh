@@ -4,7 +4,7 @@ BIN="${1:-optimize_sa}"
 echo $BIN
 cargo build --release --bin $BIN
 
-LAYOUT=")>sbfuztqhjywxlegk9dr;4i"
+LAYOUT="トリマスンキサイハノツカタクヲテシヨコウアナレニ"
 
 CMD="./target/release/$BIN -l config/keyboard/harite_jp.yml"
 

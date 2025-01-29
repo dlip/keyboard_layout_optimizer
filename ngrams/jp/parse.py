@@ -155,7 +155,7 @@ with open('core10k.txt', 'r') as f:
                     else:
                         continue
                 yomi = unshift(yomi)
-                yomi = qwerty_remap(yomi)
+                # yomi = qwerty_remap(yomi)
                 for n in ngram(x+1,yomi):
                     ngrams[x][n] = ngrams[x].get(n,0) + 1
 
